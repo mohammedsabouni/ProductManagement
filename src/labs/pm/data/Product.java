@@ -18,9 +18,9 @@ import java.math.RoundingMode;
  * @author Sabouni Mohammed Amine
  **/
 public class Product {
-    private int id;
-    private String name;
-    private BigDecimal price;
+    private final int id;
+    private final String name;
+    private final BigDecimal price;
     private Rating rating;
 
     public Product() {
@@ -50,24 +50,12 @@ public class Product {
         return name;
     }
 
-    public void setName(final String name) {
-        this.name = name;
-    }
-
     public BigDecimal getPrice() {
         return price;
     }
 
-    public void setPrice(final BigDecimal price) {
-        this.price = price;
-    }
-
     public int getId() {
         return id;
-    }
-
-    public void setId(final int id) {
-        this.id = id;
     }
 
     /**
@@ -82,5 +70,9 @@ public class Product {
 
     public Rating getRating() {
         return rating;
+    }
+
+    public Product applyRating(Rating newRating){
+        return new Product(id, name, price, newRating);
     }
 }
